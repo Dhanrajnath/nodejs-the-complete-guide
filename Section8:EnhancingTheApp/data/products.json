@@ -1,1 +1,8 @@
-[{"title":"Another"},{"title":"fasdfdas"},{"title":"Second Book"},{"title":"kangaroo"},{"title":"dell"},{"title":"zebronics"}]
+[
+  {
+    "title": "test1",
+    "imageUrl": "https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_15_2x.png",
+    "price": "100",
+    "description": "testing "
+  }
+]

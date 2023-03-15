@@ -33,6 +33,13 @@ exports.getCart = (req, res, next) => {
   });
 };
 
+exports.getOrders = (req, res, next) => {
+  res.render("shop/cart", {
+    pageTitle: "Your Cart",
+    path: "/cart",
+  });
+};
+
 exports.getCheckout = (req, res, next) => {
   res.render("shop/checkout", {
     path: "/checkout",
