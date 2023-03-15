@@ -8,3 +8,5 @@
   - What user sees, Decoupled from your application code
 - Controllers
   - Connecting your Models and your views, contains the `in-between` logic
+  <hr>
+  <img src="wrap-up.png" alt='wrap-up'>
