@@ -1,16 +1,1 @@
-[
-  {
-    "id": "123",
-    "title": "A Book",
-    "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
-    "description": "This is an awesome book!",
-    "price": "19"
-  },
-  {
-    "title": "Pen",
-    "imageUrl": "https://www.shutterstock.com/image-photo/golden-fountain-pen-leaves-signature-260nw-1437297767.jpg",
-    "description": "extra-ordinary pen",
-    "price": "20",
-    "id": "0.5414695497818216"
-  }
-]
+[{"id":"123245","title":"A Book","imageUrl":"https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg","description":"This is an awesome book!","price":"19"}]
