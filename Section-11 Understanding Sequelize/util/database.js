@@ -1,8 +1,7 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize('node-complete', 'root', 'nodecomplete', {
-  dialect: 'mysql',
-  host: 'localhost'
-});
+const sequelize = new Sequelize(
+  `mysql://springstudent:springstudent@127.0.0.1:3306/node-complete`
+);
 
 module.exports = sequelize;
