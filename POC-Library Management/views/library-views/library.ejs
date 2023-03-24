@@ -1,0 +1,65 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <div class="centered">
+                    <a class="<%= path === '/library/new-library' ? 'active' : '' %>" href="/library/new-library">
+                        <button type="submit" class="btn">Add new library ?</button>
+                    </a>
+                </div>
+                <% if (libraries.length > 0) { %>
+                    <div class="grid">
+                        <% for (let lib of libraries) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                        <% if (lib.available) { %>
+                                        <span style="display: inline-block; background-color: green; width: 15px; height: 15px; border-radius: 50%;"></span>
+                                        <% } else { %>
+                                        <span style="display: inline-block; background-color: gray; width: 15px; height: 15px; border-radius: 50%;"></span>
+                                        <% } %>
+                                        <%= lib.name %>
+                                    </h1>
+                                </header>
+                                <div class="card__content">
+                                    <h2 class="product__price">
+                                        <% if (lib.available) { %>
+                                        <form action="/book/new-book" method="POST">
+                                            <input type="hidden" value="<%= lib.id %>" name="libraryId">
+                                            <button class="btn" type="submit">Add Book</button>
+                                        </form>
+                                        <% } else { %>
+                                            <form action="/book/new-book" method="POST">
+                                                <input type="hidden" value="<%= lib.id %>" name="libraryId">
+                                                <button style="display: inline-block;
+                                                padding: 0.25rem 1rem;
+                                                text-decoration: none;
+                                                font: inherit;
+                                                border: 1px solid #999999;
+                                                background-color: #cccccc;
+                                                color: #666666;" type="submit" disabled>Add Book</button>
+                                            </form>
+                                        <% } %>
+                                        
+                                    </h2>
+                                </div>
+                                <div class="card__actions">
+                                    <a href="/library/edit-library/<%= lib.id %>?edit=true" class="btn">Edit Library</a>
+                                    <form action="/library/delete-library" method="POST">
+                                        <input type="hidden" value="<%= lib.id %>" name="libraryId">
+                                        <button class="btn" type="submit">Delete Library</button>
+                                    </form>
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No Libraries Found!</h1>
+                        <br>
+                        <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>

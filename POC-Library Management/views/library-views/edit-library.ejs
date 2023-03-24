@@ -1,0 +1,27 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<% if (editing) { %>/library/edit-library<% } else { %>/library/add-library<% } %>" method="POST">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="<% if (editing) { %><%= library.name %><% } %>">
+            </div>
+
+            <% if (editing) { %>
+                <div class="form-control">
+                    <label for="available">Available</label>
+                    <input type="checkbox" name="available" id="available" checked>
+                </div>
+                <input type="hidden" value="<%= library.id %>" name="libraryId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update Library<% } else { %>Add Library<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>
