@@ -1,0 +1,20 @@
+Typescript is a Superset to Javascript.
+
+Javascript
+function add(num1, num2) {
+    return num1 + num2;
+}
+
+add(1, 5) ---> 6
+add('1', '5') ---> "15"
+
+Typescript adds...
+Types!, Next-gen JavaScript Features, 
+Non-JavaScript Features like interfaces or Generics, Meta-programming Features like Decorators,
+
+npm install -g typescript
+
+tsc app.ts
+
+Typescript core types:
+number, string, boolean, object, Array
