@@ -8,8 +8,7 @@ const Book = require("./models/book");
 const Library = require("./models/library");
 Library.hasMany(Book);
 
-const BookRoutes = require("./routes/book-routes");
-const LibraryRoutes = require("./routes/library-routes");
+const allRoutes = require("./routes/all-routes");
 const errorController = require("./controllers/error");
 
 const app = express();
@@ -19,8 +18,8 @@ app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(BookRoutes);
-app.use(LibraryRoutes);
+app.use(allRoutes);
+
 app.use(errorController.get404);
 
 sequelize
