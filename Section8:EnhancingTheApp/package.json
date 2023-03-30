@@ -1,0 +1,30 @@
+{
+  "name": "section8-enhance-the-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhanrajnath/nodejs-the-complete-guide.git"
+  },
+  "author": "Dhanrajnath",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "pug": "^2.0.3"
+  },
+  "bugs": {
+    "url": "https://github.com/Dhanrajnath/nodejs-the-complete-guide/issues"
+  },
+  "homepage": "https://github.com/Dhanrajnath/nodejs-the-complete-guide#readme"
+}
