@@ -41,8 +41,8 @@ app.use((req, res, next) => {
 });
 
 sequelize
-  // .sync()
-  .sync({ force: true })
+  .sync()
+  // .sync({ force: true })
   .then(() => {
     return User.findByPk(1);
   })
