@@ -4,6 +4,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
 const User = require("./models/user");
+const CashKick = require("./models/cashKick");
+
+User.hasMany(CashKick);
+CashKick.belongsTo(User);
 
 const app = express();
 
