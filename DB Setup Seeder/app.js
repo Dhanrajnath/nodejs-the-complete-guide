@@ -5,9 +5,13 @@ const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
 const User = require("./models/user");
 const CashKick = require("./models/cashKick");
+const Payment = require("./models/payment");
 
 User.hasMany(CashKick);
 CashKick.belongsTo(User);
+
+CashKick.hasMany(Payment);
+Payment.belongsTo(CashKick);
 
 const app = express();
 
@@ -43,6 +47,5 @@ sequelize
     return user;
   })
   .then((user) => {
-    console.log(user);
     app.listen(3000);
   });

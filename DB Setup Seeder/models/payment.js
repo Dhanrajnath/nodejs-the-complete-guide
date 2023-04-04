@@ -2,8 +2,8 @@ const Sequelize = require("sequelize");
 
 const sequelize = require("../util/database");
 
-const CashKick = sequelize.define(
-  "cash_kick",
+const Payment = sequelize.define(
+  "payment",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -11,25 +11,19 @@ const CashKick = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    name: {
-      type: Sequelize.STRING,
+    dueDate: {
+      type: Sequelize.DATE,
       allowNull: false,
     },
     status: {
-      type: Sequelize.ENUM({
-        values: ["failed", "pending", "processing", "completed"],
-      }),
-      allowNull: false,
-    },
-    maturity: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    totalRecieved: {
+    expectedAmount: {
       type: Sequelize.DOUBLE,
       allowNull: false,
     },
-    totalFinanced: {
+    outstandingAmount: {
       type: Sequelize.DOUBLE,
       allowNull: false,
     },
@@ -39,4 +33,4 @@ const CashKick = sequelize.define(
   }
 );
 
-module.exports = CashKick;
+module.exports = Payment;
