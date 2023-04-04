@@ -2,4 +2,4 @@
 
 - obtained using sequelize
 
-![DB DESIGN](images/DB_DESIGN.jpg)
+![DB DESIGN](images/UPDATED_DB_DESIGN.jpg)

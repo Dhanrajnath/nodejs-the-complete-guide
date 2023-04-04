@@ -4,24 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
 const User = require("./models/user");
-const CashKick = require("./models/cashKick");
-const Payment = require("./models/payment");
-const Contract = require("./models/contract");
-const UserContract = require("./models/userContract");
-
-User.hasMany(CashKick);
-CashKick.belongsTo(User);
-
-CashKick.hasMany(Payment);
-Payment.belongsTo(CashKick);
-
-Contract.hasMany(UserContract);
-User.hasMany(UserContract);
-CashKick.hasMany(UserContract);
-
-UserContract.belongsTo(Contract);
-UserContract.belongsTo(User);
-UserContract.belongsTo(CashKick);
+const Associations = require("./models/associations")();
 
 const app = express();
 
