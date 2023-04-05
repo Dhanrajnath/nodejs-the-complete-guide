@@ -7,6 +7,7 @@ require("dotenv").config();
 const multer = require("multer");
 
 const feedRoutes = require("./routes/feed");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/feed", feedRoutes);
+app.use("/user", authRoutes);
 
 app.use((err, req, res, next) => {
   console.log(err);
