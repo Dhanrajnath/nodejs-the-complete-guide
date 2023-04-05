@@ -7,6 +7,7 @@ const Associations = require("./models/associations")();
 
 const userRoutes = require("./routes/user");
 const paymentRoutes = require("./routes/payment");
+const contractRoutes = require("./routes/contract");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(userRoutes);
 app.use(paymentRoutes);
+app.use(contractRoutes);
 
 app.use((error, req, res, next) => {
   const status = error.statusCode || 500;
