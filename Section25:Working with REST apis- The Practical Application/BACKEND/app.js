@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 const feedRoutes = require("./routes/feed");
 
@@ -20,4 +22,11 @@ app.use((req, res, next) => {
 
 app.use("/feed", feedRoutes);
 
-app.listen(8081);
+mongoose
+  .connect(process.env.DATABASE_URL)
+  .then(() => {
+    app.listen(8081);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
