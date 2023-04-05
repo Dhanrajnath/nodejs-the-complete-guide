@@ -4,7 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
 const Associations = require("./models/associations")();
+
 const userRoutes = require("./routes/user");
+const paymentRoutes = require("./routes/payment");
 
 const app = express();
 
@@ -16,6 +18,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(userRoutes);
+app.use(paymentRoutes);
 
 app.use((error, req, res, next) => {
   const status = error.statusCode || 500;
