@@ -3,42 +3,30 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
-const User = require("./models/user");
 const Associations = require("./models/associations")();
+const userRoutes = require("./routes/user");
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use((req, res, next) => {
-  User.findByPk(1)
-    .then((user) => {
-      req.user = user;
-      next(); //---> calling next middleware
-    })
-    .catch((err) => console.log(err));
+app.use(userRoutes);
+
+app.use((error, req, res, next) => {
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  res.status(status).json({ message: message, data: data });
 });
 
 sequelize
   .sync()
   // .sync({ force: true })
   .then(() => {
-    return User.findByPk(1);
-  })
-  .then((user) => {
-    if (!user) {
-      return User.create({
-        username: "Dhanraj",
-        email: "dhanraj@seeder.com",
-        password: "seeder123",
-      });
-    }
-    return user;
-  })
-  .then((user) => {
-    app.listen(3000);
+    app.listen(8081);
   });
