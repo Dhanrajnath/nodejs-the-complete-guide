@@ -30,18 +30,6 @@ exports.getPosts = (req, res, next) => {
       }
       next(err);
     });
-  // Post.find()
-  //   .then((posts) => {
-  //     res
-  //       .status(200)
-  //       .json({ message: "Fetched posts successfully", posts: posts });
-  //   })
-  //   .catch((err) => {
-  //     if (err.statusCode) {
-  //       err.statusCode = 500;
-  //     }
-  //     next(err);
-  //   });
 };
 
 exports.createPost = (req, res, next) => {

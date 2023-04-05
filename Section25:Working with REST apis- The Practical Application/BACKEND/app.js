@@ -56,7 +56,8 @@ app.use((err, req, res, next) => {
   console.log(err);
   const statusCode = err.statusCode || 500;
   const message = err.message;
-  res.status(statusCode).json({ message: message });
+  const data = err.data;
+  res.status(statusCode).json({ message: message, data: data });
 });
 
 mongoose
