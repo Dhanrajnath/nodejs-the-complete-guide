@@ -25,7 +25,7 @@ const CashKick = sequelize.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
-    totalRecieved: {
+    totalReceived: {
       type: Sequelize.DOUBLE,
       allowNull: false,
     },

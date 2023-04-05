@@ -12,6 +12,7 @@ router.post(
     body("status").trim().not().isEmpty(),
     body("expectedAmount").trim().not().isEmpty(),
     body("outstanding").trim().not().isEmpty(),
+    body("cashKickId").trim().not().isEmpty(),
   ],
   paymentController.addPayment
 );

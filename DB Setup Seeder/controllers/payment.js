@@ -15,12 +15,14 @@ exports.addPayment = (req, res, next) => {
   const status = req.body.status;
   const expectedAmount = req.body.expectedAmount;
   const outstanding = req.body.outstanding;
+  const cashKickId = req.body.cashKickId;
 
   const payment = new Payment({
     dueDate: dueDate,
     status: status,
     expectedAmount: expectedAmount,
     outstandingAmount: outstanding,
+    cash_kick_id: cashKickId,
   });
   payment
     .save()
