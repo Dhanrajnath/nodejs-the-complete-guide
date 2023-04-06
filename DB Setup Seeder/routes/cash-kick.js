@@ -18,6 +18,6 @@ router.post(
   cashkickController.createCashkick
 );
 
-// router.get("/cashkicks", contractController.getCashKicks);
+router.get("/cashkicks", cashkickController.getCashKicks);
 
 module.exports = router;

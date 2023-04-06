@@ -4,6 +4,8 @@ const CashKick = require("../models/cashKick");
 const User = require("../models/user");
 const Contract = require("../models/contract");
 const UserContract = require("../models/userContract");
+const { model } = require("mongoose");
+const { Sequelize, Op } = require("sequelize");
 
 exports.createCashkick = (req, res, next) => {
   const errors = validationResult(req);
@@ -81,4 +83,29 @@ exports.createCashkick = (req, res, next) => {
       }
       next(err);
     });
+};
+
+exports.getCashKicks = async (req, res, next) => {
+  const response = [];
+  let selectedContracts;
+
+  let cashkicks = await CashKick.findAll({ where: { user_id: req.user.id } });
+
+  cashkicks = cashkicks.map((cashkick) => cashkick.toJSON());
+
+  const promises = cashkicks.map(async (cashkick) => {
+    let userContract = await UserContract.findAll({
+      where: { user_id: req.user.id, cash_kick_id: cashkick.id },
+      include: { model: Contract },
+    });
+
+    userContract = userContract.map((p) => p.toJSON());
+    selectedContracts = userContract.map((user) => ({ ...user.contract }));
+    response.push({
+      ...cashkick,
+      selectedContracts: JSON.stringify(selectedContracts),
+    });
+  });
+  await Promise.all(promises);
+  res.status(201).json({ data: response });
 };
