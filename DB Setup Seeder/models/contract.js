@@ -15,6 +15,10 @@ const Contract = sequelize.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    contractType: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
     perPayment: {
       type: Sequelize.DOUBLE,
       allowNull: false,
