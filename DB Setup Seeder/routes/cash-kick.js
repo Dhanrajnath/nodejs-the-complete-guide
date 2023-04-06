@@ -9,11 +9,10 @@ router.post(
   "/cashkick",
   [
     body("name").trim().not().isEmpty(),
-    // body("selectedContracts").trim().not().isEmpty(),
-    body("status").trim().not().isEmpty(),
-    body("maturity").trim().not().isEmpty(),
-    body("totalReceived").trim().not().isEmpty(),
-    body("totalFinanced").trim().not().isEmpty(),
+    body("term").trim().not().isEmpty(),
+    body("paybackAmount").trim().not().isEmpty(),
+    body("rate").trim().not().isEmpty(),
+    body("totalPayout").trim().not().isEmpty(),
     body("userId").trim().not().isEmpty(),
   ],
   cashkickController.createCashkick

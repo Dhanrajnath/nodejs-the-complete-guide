@@ -3,6 +3,7 @@ const { validationResult } = require("express-validator/check");
 const CashKick = require("../models/cashKick");
 const User = require("../models/user");
 const Contract = require("../models/contract");
+const UserContract = require("../models/userContract");
 
 exports.createCashkick = (req, res, next) => {
   const errors = validationResult(req);
@@ -13,38 +14,66 @@ exports.createCashkick = (req, res, next) => {
     throw error;
   }
 
-  const userId = req.body.userId;
-  if (!userId) {
-    const error = new Error("user id is not provided");
+  const selectedContracts = JSON.parse(req.body.selectedContracts);
+  if (selectedContracts.length < 1) {
+    const error = new Error("no contracts selected, please select a contract");
     error.statusCode = 404;
     throw error;
   }
+
+  //checking contract exists!
+  selectedContracts.map((contract) => {
+    Contract.findByPk(contract.contractId)
+      .then((contract) => {
+        if (contract == null) {
+          const error = new Error("failed to fetch one of the contract id");
+          error.statusCode = 404;
+          throw error;
+        }
+      })
+      .catch((err) => {
+        if (!err.statusCode) {
+          err.statusCode = 500;
+        }
+        next(err);
+      });
+  });
+
+  const userId = req.body.userId;
+
   User.findByPk(userId)
     .then((user) => {
-      if (!user) {
-        const error = new Error("user not found");
+      if (user === null) {
+        const error = new Error("user not found.");
         error.statusCode = 404;
         throw error;
       }
+      const termMonths = req.body.term.split(" ")[0];
+
       const cashkick = new CashKick({
         name: req.body.name,
-        status: req.body.status,
-        maturity: req.body.maturity,
-        totalReceived: req.body.totalReceived,
-        totalFinanced: req.body.totalFinanced,
+        status: "pending",
+        rate: req.body.rate,
+        maturity: termMonths == "12" ? "Apr 06, 2024" : "Oct 06, 2023",
+        totalReceived: req.body.totalPayout,
+        totalFinanced: req.body.paybackAmount,
         user_id: user.id,
       });
-      cashkick
-        .save()
-        .then((result) => {
-          res.status(201).json({ message: "cashkick created!", data: result });
-        })
-        .catch((err) => {
-          if (!err.statusCode) {
-            err.statusCode = 500;
-          }
-          next(err);
+      cashkick.save().then((result) => {
+        const cashKickId = result.id;
+        selectedContracts.map((contract) => {
+          const userContract = new UserContract({
+            user_id: userId,
+            cash_kick_id: cashKickId,
+            contract_id: contract.contractId,
+          });
+          return userContract.save().then(() => {
+            res
+              .status(201)
+              .json({ message: "cashkick created!", data: result });
+          });
         });
+      });
     })
     .catch((err) => {
       if (!err.statusCode) {
@@ -52,6 +81,4 @@ exports.createCashkick = (req, res, next) => {
       }
       next(err);
     });
-
-  const cashkick = new CashKick({});
 };
