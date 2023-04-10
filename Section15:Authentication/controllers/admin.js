@@ -1,11 +1,11 @@
 const Product = require("../models/product");
 
 exports.getAddProduct = (req, res, next) => {
-  const isLoggedIn = req.session.isLoggedIn;
-  if (!isLoggedIn) {
-    // protecting route
-    return res.redirect("/login");
-  }
+  // const isLoggedIn = req.session.isLoggedIn;
+  // if (!isLoggedIn) {
+  //   // protecting route
+  //   return res.redirect("/login");
+  // }
   res.render("admin/edit-product", {
     pageTitle: "Add Product",
     path: "/admin/add-product",
