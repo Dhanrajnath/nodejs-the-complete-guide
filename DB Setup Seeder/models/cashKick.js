@@ -21,11 +21,15 @@ const CashKick = sequelize.define(
       }),
       allowNull: false,
     },
+    rate: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
     maturity: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    totalRecieved: {
+    totalReceived: {
       type: Sequelize.DOUBLE,
       allowNull: false,
     },

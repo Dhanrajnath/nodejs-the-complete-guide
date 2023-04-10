@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "628bbf3e-5192-45d8-beb8-cc923ff0f2f3",
+		"name": "Seeder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"dhanraj\",\n    \"email\": \"dhanraj@seeder.com\",\n    \"password\": \"seeder123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Another User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"dhanraj2\",\n    \"email\": \"dhanraj2@seeder.com\",\n    \"password\": \"seeder123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "434"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b2-ySjcWFx764QxH5LePEQu6IYzeYQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 06:37:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"username\": \"dhanraj\",\n            \"email\": \"dhanraj@seeder.com\",\n            \"password\": \"$2a$12$xSvvCDpEwRVpPjQaI/svEeKpAhECJTWuInl3rxQsqXtu8oObHwZaW\",\n            \"createdAt\": \"2023-04-06T14:05:53.000Z\",\n            \"updatedAt\": \"2023-04-06T14:05:53.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"username\": \"dhanraj2\",\n            \"email\": \"dhanraj2@seeder.com\",\n            \"password\": \"$2a$12$hyiorIYBtdXvCUkjhDX5J.lmH1vZBI26hBbhpioElfZoDrsnskiZG\",\n            \"createdAt\": \"2023-04-06T14:06:57.000Z\",\n            \"updatedAt\": \"2023-04-06T14:06:57.000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "221"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dd-LVCt3Euky6NPu9MDrF0BbfXquDM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 06:38:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"username\": \"dhanraj\",\n            \"email\": \"dhanraj@seeder.com\",\n            \"password\": \"$2a$12$xSvvCDpEwRVpPjQaI/svEeKpAhECJTWuInl3rxQsqXtu8oObHwZaW\",\n            \"createdAt\": \"2023-04-06T14:05:53.000Z\",\n            \"updatedAt\": \"2023-04-06T14:05:53.000Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Contracts",
+			"item": [
+				{
+					"name": "Add Contract",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contractName\": \"contract1\",\n    \"contractType\": \"Monthly\",\n    \"perPayment\": \"6000\",\n    \"termLength\": \"12 months\",\n    \"paymentAmount\": \"23277.36\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/contract",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Another Contract",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contractName\": \"contract2\",\n    \"contractType\": \"Monthly\",\n    \"perPayment\": \"12000.25\",\n    \"termLength\": \"12 months\",\n    \"paymentAmount\": \"126722.64\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/contract",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contracts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/contracts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"contracts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Contracts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/contracts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "257"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"101-LwNDsLEM5NaJC6BMI0vsOxH1YSc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 06:38:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"contract1\",\n            \"contractType\": \"Monthly\",\n            \"perPayment\": 6000,\n            \"termLength\": \"12 months\",\n            \"paymentAmount\": 23277.36\n        },\n        {\n            \"id\": 2,\n            \"name\": \"contract2\",\n            \"contractType\": \"Monthly\",\n            \"perPayment\": 12000.25,\n            \"termLength\": \"12 months\",\n            \"paymentAmount\": 126722.64\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CashKicks",
+			"item": [
+				{
+					"name": "Add CashKick",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My first advance\",\n    \"selectedContracts\": \"[{\\\"contractId\\\":1},{\\\"contractId\\\":2}]\",\n    \"userId\": 1,\n    \"term\": \"12 months\",\n    \"paybackAmount\": \"170454.55\",\n    \"rate\": \"12%\",\n    \"totalPayout\": \"150000.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/cashkick",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cashkick"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Another CashKick",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My second advance\",\n    \"selectedContracts\": \"[{\\\"contractId\\\":2}]\",\n    \"userId\": 1,\n    \"term\": \"12 months\",\n    \"paybackAmount\": \"170454.55\",\n    \"rate\": \"12%\",\n    \"totalPayout\": \"150000.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/cashkick",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cashkick"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CashKicks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/cashkicks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cashkicks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get CashKicks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/cashkicks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"cashkicks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "794"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31a-2jDLMpE+ZA+5QOz/Bvhx07DuCdE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 06:38:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"name\": \"My second advance\",\n            \"status\": \"pending\",\n            \"rate\": \"12%\",\n            \"maturity\": \"Apr 06, 2024\",\n            \"totalReceived\": 150000,\n            \"totalFinanced\": 170454.55,\n            \"user_id\": 1,\n            \"selectedContracts\": \"[{\\\"id\\\":2,\\\"name\\\":\\\"contract2\\\",\\\"contractType\\\":\\\"Monthly\\\",\\\"perPayment\\\":12000.25,\\\"termLength\\\":\\\"12 months\\\",\\\"paymentAmount\\\":126722.64}]\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"My first advance\",\n            \"status\": \"pending\",\n            \"rate\": \"12%\",\n            \"maturity\": \"Apr 06, 2024\",\n            \"totalReceived\": 150000,\n            \"totalFinanced\": 170454.55,\n            \"user_id\": 1,\n            \"selectedContracts\": \"[{\\\"id\\\":1,\\\"name\\\":\\\"contract1\\\",\\\"contractType\\\":\\\"Monthly\\\",\\\"perPayment\\\":6000,\\\"termLength\\\":\\\"12 months\\\",\\\"paymentAmount\\\":23277.36},{\\\"id\\\":2,\\\"name\\\":\\\"contract2\\\",\\\"contractType\\\":\\\"Monthly\\\",\\\"perPayment\\\":12000.25,\\\"termLength\\\":\\\"12 months\\\",\\\"paymentAmount\\\":126722.64}]\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Add Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dueDate\": \"Apr 09, 2023\",\n    \"status\": \"Upcoming\",\n    \"expectedAmount\": -14204.55,\n    \"outstanding\": 156250.05,\n    \"cashKickId\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Payments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "150"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"96-cL+nLsNQ5WPQzUVWmaESPjZNXWI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 06:38:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"dueDate\": \"2023-04-08T18:30:00.000Z\",\n            \"status\": \"Upcoming\",\n            \"expectedAmount\": -14204.55,\n            \"outstandingAmount\": 156250.05,\n            \"cash_kick_id\": 1\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

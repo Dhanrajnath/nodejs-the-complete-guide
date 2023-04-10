@@ -11,10 +11,6 @@ const UserContract = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    totalAmount: {
-      type: Sequelize.DOUBLE,
-      allowNull: false,
-    },
   },
   {
     timestamps: false,

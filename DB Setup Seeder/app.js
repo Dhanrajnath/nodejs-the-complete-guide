@@ -3,42 +3,41 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
-const User = require("./models/user");
 const Associations = require("./models/associations")();
+
+const allRoutes = require("./routes/all-routes");
+const User = require("./models/user");
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
   User.findByPk(1)
     .then((user) => {
       req.user = user;
-      next(); //---> calling next middleware
+      next();
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.use(allRoutes);
+
+app.use((error, req, res, next) => {
+  const { statusCode = 500, message, data } = error;
+  res.status(statusCode).json({ message, data });
 });
 
 sequelize
   .sync()
   // .sync({ force: true })
   .then(() => {
-    return User.findByPk(1);
-  })
-  .then((user) => {
-    if (!user) {
-      return User.create({
-        username: "Dhanraj",
-        email: "dhanraj@seeder.com",
-        password: "seeder123",
-      });
-    }
-    return user;
-  })
-  .then((user) => {
-    app.listen(3000);
+    app.listen(8081);
   });
