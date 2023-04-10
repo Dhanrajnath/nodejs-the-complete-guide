@@ -5,10 +5,7 @@ const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
 const Associations = require("./models/associations")();
 
-const userRoutes = require("./routes/user");
-const paymentRoutes = require("./routes/payment");
-const contractRoutes = require("./routes/contract");
-const cashkickRoutes = require("./routes/cash-kick");
+const allRoutes = require("./routes/all-routes");
 const User = require("./models/user");
 
 const app = express();
@@ -31,16 +28,11 @@ app.use((req, res, next) => {
     });
 });
 
-app.use(userRoutes);
-app.use(paymentRoutes);
-app.use(contractRoutes);
-app.use(cashkickRoutes);
+app.use(allRoutes);
 
 app.use((error, req, res, next) => {
-  const status = error.statusCode || 500;
-  const message = error.message;
-  const data = error.data;
-  res.status(status).json({ message: message, data: data });
+  const { statusCode = 500, message, data } = error;
+  res.status(statusCode).json({ message, data });
 });
 
 sequelize

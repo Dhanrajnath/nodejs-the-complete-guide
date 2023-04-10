@@ -27,6 +27,12 @@ exports.addContract = (req, res, next) => {
   contract
     .save()
     .then((contract) => {
+      if (contract == null) {
+        const error = new Error("creating a contract failed!");
+        error.statusCode = 422;
+        error.data = errors.array();
+        throw error;
+      }
       res.status(201).json({ message: "Contract added!", data: contract });
     })
     .catch((err) => {

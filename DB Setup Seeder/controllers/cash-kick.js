@@ -4,8 +4,6 @@ const CashKick = require("../models/cashKick");
 const User = require("../models/user");
 const Contract = require("../models/contract");
 const UserContract = require("../models/userContract");
-const { model } = require("mongoose");
-const { Sequelize, Op } = require("sequelize");
 
 exports.createCashkick = (req, res, next) => {
   const errors = validationResult(req);
